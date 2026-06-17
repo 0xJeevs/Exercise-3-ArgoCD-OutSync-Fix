@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: payment-service
-        image: nginx:1.21  # Simple test image
+        image: nginx:latest # Simple test image
         ports:
         - containerPort: 80
         resources:
