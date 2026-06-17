@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: file:///home/$(whoami)/argocd-exercise  # Local path or Git URL
+    repoURL: https://github.com/0xJeevs/Exercise-3-ArgoCD-OutSync-Fix.git # Local path or Git URL
     targetRevision: HEAD
     path: payment-service
   destination:
