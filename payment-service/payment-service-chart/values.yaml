@@ -1,0 +1,18 @@
+replicaCount: 3
+
+image:
+  repository: jerry1808/payment-service  # ← Replace with YOUR registry
+  pullPolicy: IfNotPresent
+  tag: "v1"
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+  requests:
+    cpu: 250m
+    memory: 128Mi
