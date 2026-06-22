@@ -1,0 +1,23 @@
+{{- if .Values.ingress.enabled }}
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "reusable-app-chart.fullname" . }}
+
+spec:
+  ingressClassName: {{ .Values.ingress.className }}
+
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - path: {{ .Values.ingress.path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "reusable-app-chart.fullname" . }}
+            port:
+              number: {{ .Values.service.port }}
+
+{{- end }}

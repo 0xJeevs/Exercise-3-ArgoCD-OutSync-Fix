@@ -1,0 +1,6 @@
+apiVersion: v2
+name: reusable-app-chart
+description: Reusable Helm Chart for Kubernetes Applications
+type: application
+version: 0.1.0
+appVersion: "1.0"

@@ -1,0 +1,38 @@
+replicaCount: 2
+
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+config:
+  APP_ENV: default
+  LOG_LEVEL: info
+
+secret:
+  username: admin
+  password: admin123
+
+ingress:
+  enabled: false
+  className: nginx
+  host: app.local
+  path: /
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70

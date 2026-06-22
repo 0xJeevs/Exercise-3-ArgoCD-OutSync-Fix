@@ -1,0 +1,14 @@
+replicaCount: 2
+
+config:
+  APP_ENV: qa
+  LOG_LEVEL: info
+
+ingress:
+  enabled: true
+  host: qa.example.com
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5

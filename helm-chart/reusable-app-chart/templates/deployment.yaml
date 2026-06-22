@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "reusable-app-chart.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "reusable-app-chart.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "reusable-app-chart.name" . }}
+    spec:
+      containers:
+      - name: app
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+        ports:
+        - containerPort: 80
+
+        envFrom:
+        - configMapRef:
+            name: {{ include "reusable-app-chart.fullname" . }}
+        - secretRef:
+            name: {{ include "reusable-app-chart.fullname" . }}
+
+        resources:
+{{ toYaml .Values.resources | indent 10 }}

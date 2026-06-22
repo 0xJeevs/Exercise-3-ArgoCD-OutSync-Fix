@@ -1,0 +1,11 @@
+replicaCount: 1
+
+config:
+  APP_ENV: dev
+  LOG_LEVEL: debug
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
