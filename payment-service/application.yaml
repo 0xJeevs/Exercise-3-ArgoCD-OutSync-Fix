@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/0xJeevs/Exercise-3-ArgoCD-OutSync-Fix.git
     targetRevision: main
-    path: payment-gitops/payment-service
+    path: payment-service/payment-gitops/payment-service
 
   destination:
     server: https://kubernetes.default.svc
