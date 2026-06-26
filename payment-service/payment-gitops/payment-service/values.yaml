@@ -1,0 +1,21 @@
+replicaCount: 2
+
+image:
+  repository: 996680283278.dkr.ecr.us-east-1.amazonaws.com/payment-service
+  tag: v1
+  pullPolicy: Always
+
+containerPort: 5000
+
+service:
+  type: ClusterIP
+  port: 80
+
+serviceAccount:
+  create: true
+  name: payment-service
+
+autoscaling:
+  enabled: false
+
+resources: {}

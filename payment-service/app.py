@@ -1,14 +1,15 @@
-from flask import Flask, jsonify
+from flask import Flask
+import os
 
 app = Flask(__name__)
 
-@app.route('/health')
+@app.route("/")
+def home():
+    return "Payment Service Running"
+
+@app.route("/health")
 def health():
-    return jsonify({"status": "healthy", "version": "v2"})
+    return "OK"
 
-@app.route('/payment')
-def payment():
-    return jsonify({"message": "Payment Successfull", "version": "v2"})
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
